@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8df2050-e1ea-44cc-83c8-628a65e74981" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/pages/home_pages/home_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/video_list_page/video_list_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/video_list_page/video_list_page_controller.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/api_provider/api_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qtec_task.iml" beforeDir="false" afterPath="$PROJECT_DIR$/qtec_task.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +69,7 @@
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
+    "io.flutter.reload.alreadyRun": "true",
     "last_opened_file_path": "/Users/rbsiosdev/office-projects/qtec_task",
     "show.migrate.to.gradle.popup": "false"
   }

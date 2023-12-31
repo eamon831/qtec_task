@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qtec_task/pages/video_player_page/video_player_page.dart';
+import 'package:qtec_task/pages/video_list_page/video_list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const VideoPlayerPage(),
+      home: const VideoListPage(),
     );
   }
 }
