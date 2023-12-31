@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:qtec_task/global_widget/video_card_view.dart';
 import 'package:qtec_task/pages/video_list_page/video_list_page_controller.dart';
+import 'package:qtec_task/pages/video_player_page/video_player_page.dart';
 
 class VideoListPage extends StatelessWidget {
   const VideoListPage({super.key});
@@ -11,43 +13,50 @@ class VideoListPage extends StatelessWidget {
     VideoListPageController mvc = Get.put(VideoListPageController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Video List Page'),
+        title:  Text('Trending Page',style: GoogleFonts.inter(
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+
+        ),),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Obx(() {
-              if (mvc.videoList.isEmpty) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-              return ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: mvc.videoList.length,
-                itemBuilder: (context, index) {
-                  var video = mvc.videoList[index];
-                  return ListTile(
-                    title: Text(video!['title']),
+      body: Obx(() {
+        if (mvc.data.value == null) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else {
+          return SizedBox(
+            height: Get.height*0.9,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: mvc.data.value!.length + (mvc.isFetchingNewVideos.value ? 1 : 0),
+              physics: const ScrollPhysics(),
+              controller: mvc.scrollController,
+              itemBuilder: (context, index) {
+                if(index==mvc.data.value!.length){
+                  return const Center(
+                    child: CircularProgressIndicator(),
                   );
-                },
-              );
-            }),
-            Obx(() {
-              if (mvc.videoList.isEmpty) {
-                return const SizedBox();
-              }
-              return ElevatedButton(
-                onPressed: () {
-                  mvc.fetchNewTenVideos();
-                },
-                child: const Text('Load More'),
-              );
-            }),
-          ],
-        ),
-      )
+                }
+
+
+                var video = mvc.data.value![index];
+                return VideoCardView(
+                    video: video,
+                    onTap: () {
+                       Get.to(const VideoPlayerPage(),arguments: {
+                         'video':video,
+                       });
+                    });
+                return ListTile(
+                  title: Text(mvc.data.value![index]['title']),
+                );
+              },
+            ),
+          );
+
+        }
+      }),
     );
   }
 }
