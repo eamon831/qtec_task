@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:qtec_task/global_widget/video_card_view.dart';
 import 'package:qtec_task/pages/video_list_page/video_list_page_controller.dart';
 import 'package:qtec_task/pages/video_player_page/video_player_page.dart';
+import 'package:nb_utils/nb_utils.dart';
 
 class VideoListPage extends StatelessWidget {
   const VideoListPage({super.key});
@@ -34,8 +35,13 @@ class VideoListPage extends StatelessWidget {
               controller: mvc.scrollController,
               itemBuilder: (context, index) {
                 if(index==mvc.data.value!.length){
-                  return const Center(
-                    child: CircularProgressIndicator(),
+                  return Column(
+                    children: [
+                      const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                      10.height,
+                    ],
                   );
                 }
 

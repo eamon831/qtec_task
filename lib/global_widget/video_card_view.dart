@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:qtec_task/global_widget/subtitle_text_view.dart';
+import 'package:qtec_task/global_widget/title_text_view.dart';
 
 
 class VideoCardView extends StatelessWidget {
@@ -55,34 +57,13 @@ class VideoCardView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        video['title'],
-                        style: GoogleFonts.hindSiliguri(
-                          textStyle: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                          ),
-
-                        ),
-                      ),
+                      TitleTextView(text: video['title']),
                       const SizedBox(
                         height: 5,
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            "${video['viewers']} views . $formattedDate",
-                            style: GoogleFonts.inter(
-                              textStyle: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      SubtitleTextView(text: "${video['viewers']} views . $formattedDate"),
+
+
                     ],
                   ),
                 ),
