@@ -10,19 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8df2050-e1ea-44cc-83c8-628a65e74981" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/global_widget/column_icon_button.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/global_widget/subtitle_text_view.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/global_widget/title_text_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/global_widget/video_card_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/global_widget/video_card_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/video_list_page/video_list_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/video_list_page/video_list_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

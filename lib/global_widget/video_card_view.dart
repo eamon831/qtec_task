@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:qtec_task/global_widget/subtitle_text_view.dart';
 import 'package:qtec_task/global_widget/title_text_view.dart';
@@ -40,7 +39,7 @@ class VideoCardView extends StatelessWidget {
                 Expanded(
                   child: Container(
                     height: Get.height*0.08,
-                    margin: EdgeInsets.only(right: 5,),
+                    margin: const EdgeInsets.only(right: 5,),
                     decoration: BoxDecoration(
                       color: Colors.black,
                       shape: BoxShape.circle,
@@ -67,10 +66,10 @@ class VideoCardView extends StatelessWidget {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Container(
+                const Expanded(
+                  child: SizedBox(
                     height: 40,
-                    child: const Icon(
+                    child: Icon(
                       Icons.more_vert,
                       color: Colors.black,
                     )

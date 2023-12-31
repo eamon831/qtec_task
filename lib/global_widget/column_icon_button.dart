@@ -15,16 +15,16 @@ class ColumnIconButton extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(6, 12, 6, 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Color(0xFFF7FAFC),
+        color: const Color(0xFFF7FAFC),
         border: Border.all(
-          color: Color(0xffE2E8F0)),
+          color: const Color(0xffE2E8F0)),
 
       ),
       child: Column(
         children: [
           Icon(
               icon,
-              color: Color(0xff718096),
+              color: const Color(0xff718096),
               size: 24,),
 
           Text(text,style: GoogleFonts.poppins(

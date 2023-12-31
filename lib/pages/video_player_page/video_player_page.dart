@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 import 'package:qtec_task/global_widget/column_icon_button.dart';
 import 'package:qtec_task/global_widget/title_text_view.dart';
 import 'package:qtec_task/pages/video_player_page/video_player_page_controller.dart';
-import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 
 class VideoPlayerPage extends StatelessWidget {
@@ -36,7 +34,7 @@ class VideoPlayerPage extends StatelessWidget {
                     mvc.controller.dispose();
                     Get.back();
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
                   ),
@@ -51,12 +49,12 @@ class VideoPlayerPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TitleTextView(text: mvc.video.value?['title'] ?? ''),
-                SizedBox(height: 8),
-                Text(
+                const SizedBox(height: 8),
+                const Text(
                   'Views • Upload Date',
                   style: TextStyle(color: Colors.grey),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -70,8 +68,8 @@ class VideoPlayerPage extends StatelessWidget {
             ),
           ),
           // Video Description
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
             child: Text(
               'Video description goes here. It can be a long text that might need to be truncated with a "Show More" link.',
               maxLines: 3, // Limit the number of lines initially
