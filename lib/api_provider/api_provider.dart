@@ -21,14 +21,15 @@ class ApiProvider{
     if (jsonResponse['error'] != null) {
       return [];
     }
-    if (jsonResponse['items'] == null) {
+    if (jsonResponse['results'] == null) {
       return [];
     }
-    return jsonResponse['items'];
+    return jsonResponse['results'].map<Map<String,dynamic>>((e) => e as Map<String,dynamic>).toList();
 
   }
   static Future<Map<String, dynamic>?> _getJson(Uri uri) async {
     try {
+      _httpClient.badCertificateCallback = ((X509Certificate cert, String host, int port) => true);
       final httpRequest = await _httpClient.getUrl(uri);
       print(httpRequest.uri.toString());
       final httpResponse = await httpRequest.close();
