@@ -13,7 +13,6 @@ class ApiProvider{
     final uri = Uri.parse(BASE_URL+endpoint_trending_videos).replace(
       queryParameters: {
         'page': page,
-        'page_size': '4',
       },
     );
     final jsonResponse = await _getJson(uri,true);

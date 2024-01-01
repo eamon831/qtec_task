@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:qtec_task/global_widget/cached_image_view.dart';
 import 'package:qtec_task/global_widget/channel_image_circle_view.dart';
 import 'package:qtec_task/global_widget/subtitle_text_view.dart';
 import 'package:qtec_task/global_widget/title_text_view.dart';
-
 
 class VideoCardView extends StatelessWidget {
   final Map<String, dynamic> video;
@@ -28,11 +27,9 @@ class VideoCardView extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Image.network(
-                  video['thumbnail'],
+                CachedImageView(
+                  imageUrl: video['thumbnail'],
                   height: 200,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
                 ),
                 Positioned(
                   bottom: 10,
@@ -59,8 +56,9 @@ class VideoCardView extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: ChannelImageCircleView(imageUrl: video['channel_image'],)
-                ),
+                    child: ChannelImageCircleView(
+                  imageUrl: video['channel_image'],
+                )),
                 Expanded(
                   flex: 8,
                   child: Column(
@@ -70,19 +68,18 @@ class VideoCardView extends StatelessWidget {
                       const SizedBox(
                         height: 5,
                       ),
-                      SubtitleTextView(text: "${video['viewers']} views . $formattedDate"),
+                      SubtitleTextView(
+                          text: "${video['viewers']} views . $formattedDate"),
                     ],
                   ),
                 ),
                 const Expanded(
                   child: SizedBox(
-                    height: 40,
-                    child: Icon(
-                      Icons.more_vert,
-                      color: Colors.black,
-                    )
-
-                  ),
+                      height: 40,
+                      child: Icon(
+                        Icons.more_vert,
+                        color: Colors.black,
+                      )),
                 ),
               ],
             ),

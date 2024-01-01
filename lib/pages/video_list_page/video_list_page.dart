@@ -14,52 +14,57 @@ class VideoListPage extends StatelessWidget {
     VideoListPageController mvc = Get.put(VideoListPageController());
     return Scaffold(
       appBar: AppBar(
-        title:  Text('Trending Page',style: GoogleFonts.inter(
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
-
-        ),),
+        title: Text(
+          'Trending Page',
+          style: GoogleFonts.inter(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
-      body: Obx(() {
-        if (mvc.data.value == null) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else {
-          return SizedBox(
-            height: Get.height*0.9,
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: mvc.data.value!.length + (mvc.isFetchingNewVideos.value ? 1 : 0),
-              physics: const ScrollPhysics(),
-              controller: mvc.scrollController,
-              itemBuilder: (context, index) {
-                if(index==mvc.data.value!.length){
-                  return Column(
-                    children: [
-                      const Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                      10.height,
-                    ],
-                  );
-                }
-
-
-                var video = mvc.data.value![index];
-                return VideoCardView(
+      body: Obx(
+        () {
+          if (mvc.data.value == null) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return SizedBox(
+              height: Get.height * 0.9,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: mvc.data.value!.length + (mvc.isFetchingNewVideos.value ? 1 : 0),
+                physics: const ScrollPhysics(),
+                controller: mvc.scrollController,
+                itemBuilder: (context, index) {
+                  if (index == mvc.data.value!.length) {
+                    return Column(
+                      children: [
+                        const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                        10.height,
+                      ],
+                    );
+                  }
+                  var video = mvc.data.value![index];
+                  return VideoCardView(
                     video: video,
                     onTap: () {
-                       Get.to(const VideoPlayerPage(),arguments: {
-                         'video':video,
-                       });
-                    });
-              },
-            ),
-          );
-
-        }
-      }),
+                      Get.to(
+                        const VideoPlayerPage(),
+                        arguments: {
+                          'video': video,
+                        },
+                      );
+                    },
+                  );
+                },
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }
