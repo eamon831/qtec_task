@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:qtec_task/global_widget/cached_image_view.dart';
 import 'package:qtec_task/global_widget/channel_image_circle_view.dart';
 import 'package:qtec_task/global_widget/subtitle_text_view.dart';
@@ -58,7 +59,9 @@ class VideoCardView extends StatelessWidget {
                 Expanded(
                     child: ChannelImageCircleView(
                   imageUrl: video['channel_image'],
-                )),
+                ),
+                ),
+                5.width,
                 Expanded(
                   flex: 8,
                   child: Column(
