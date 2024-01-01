@@ -54,9 +54,6 @@ class VideoListPage extends StatelessWidget {
                          'video':video,
                        });
                     });
-                return ListTile(
-                  title: Text(mvc.data.value![index]['title']),
-                );
               },
             ),
           );

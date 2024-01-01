@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:qtec_task/global_widget/channel_image_circle_view.dart';
 import 'package:qtec_task/global_widget/subtitle_text_view.dart';
 import 'package:qtec_task/global_widget/title_text_view.dart';
 
@@ -25,11 +26,32 @@ class VideoCardView extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.network(
-              video['thumbnail'],
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.cover,
+            Stack(
+              children: [
+                Image.network(
+                  video['thumbnail'],
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+                Positioned(
+                  bottom: 10,
+                  right: 10,
+                  child: Container(
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Text(
+                      video['duration'],
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(
               height: 10,
@@ -37,19 +59,7 @@ class VideoCardView extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Container(
-                    height: Get.height*0.08,
-                    margin: const EdgeInsets.only(right: 5,),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(video['channel_image']),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-
-                  ),
+                  child: ChannelImageCircleView(imageUrl: video['channel_image'],)
                 ),
                 Expanded(
                   flex: 8,
@@ -61,8 +71,6 @@ class VideoCardView extends StatelessWidget {
                         height: 5,
                       ),
                       SubtitleTextView(text: "${video['viewers']} views . $formattedDate"),
-
-
                     ],
                   ),
                 ),
