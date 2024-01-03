@@ -25,8 +25,10 @@ String formatTimeDifference(DateTime dateTime) {
   }
 }
 
-String formatDate(String originalDate) {
-  DateTime dateTime = DateTime.parse(originalDate);
+String formatDate(DateTime? dateTime) {
+  if(dateTime==null){
+    return '';
+  }
   String formattedDate = DateFormat.yMMMd().format(dateTime);
   return formattedDate;
 }

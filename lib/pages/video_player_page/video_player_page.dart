@@ -48,7 +48,7 @@ class VideoPlayerPage extends StatelessWidget {
                       : Stack(
                           children: [
                             CachedImageView(
-                              imageUrl: mvc.video.value!['thumbnail'],
+                              imageUrl: mvc.video.value!.thumbnail!,
                               height: Get.height * 0.3,
                             ),
                             Positioned(
@@ -94,14 +94,14 @@ class VideoPlayerPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           GlobalTextView(
-                            text: mvc.video.value?['title'] ?? '',
+                            text: mvc.video.value?.title ?? '',
                             fontFamily: FONT_FAMILY_HIND_SILIGURI,
                             fontSize: 15,
                             fontWeight: 600,
                           ),
                           8.height,
                           GlobalTextView(
-                            text: '${mvc.video.value!['viewers']} views  .  ${formatTimeDifference(DateTime.parse(mvc.video.value!['created_at']))}',
+                            text: '${mvc.video.value!.viewers} views  .  ${formatTimeDifference(mvc.video.value!.createdAt!)}',
                             fontSize: 12,
                             fontWeight: 400,
                           ),
@@ -142,7 +142,7 @@ class VideoPlayerPage extends StatelessWidget {
                                     ),
                                     child: ChannelImageCircleView(
                                       imageUrl:
-                                          mvc.video.value!['channel_image'],
+                                          mvc.video.value!.channelImage!,
                                     ),
                                   ),
                                   Column(
@@ -150,12 +150,12 @@ class VideoPlayerPage extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       GlobalTextView(
-                                        text: mvc.video.value?['channel_name'] ?? '',
+                                        text: mvc.video.value?.channelName ?? '',
                                         fontSize: 14,
                                         fontWeight: 500,
                                       ),
                                       GlobalTextView(
-                                        text: '${mvc.video.value?['channel_subscriber'] ?? ''} subscribers',
+                                        text: '${mvc.video.value?.channelSubscriber ?? ''} subscribers',
                                         fontSize: 11,
                                         fontWeight: 400,
                                       ),
@@ -248,7 +248,7 @@ class VideoPlayerPage extends StatelessWidget {
                             itemBuilder: (context, index) {
                               var comment = {
                                 'profile_image_url':
-                                    mvc.video.value!['channel_image'],
+                                    mvc.video.value!.channelImage,
                                 'commenter_name': "Fahmida khanom",
                                 'created_at': "2 days",
                                 'comment':

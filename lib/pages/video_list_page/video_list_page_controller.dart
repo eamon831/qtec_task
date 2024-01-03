@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qtec_task/api_provider/api_provider.dart';
+import 'package:qtec_task/model/video_model.dart';
 
 class VideoListPageController extends GetxController {
-  Rx<List<Map<String, dynamic>>?> data = Rx<List<Map<String, dynamic>>?>(null);
+  Rx<List<VideoModel>?> data = Rx<List<VideoModel>?>(null);
   ScrollController scrollController = ScrollController();
   var isFetchingNewVideos = true.obs;
   int page = 1;

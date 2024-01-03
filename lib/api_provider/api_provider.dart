@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:convert' show json, utf8;
 
 import 'package:qtec_task/model/total_videos.dart';
+import 'package:qtec_task/model/video_model.dart';
 import 'package:qtec_task/utils/constants.dart';
 
 
@@ -9,7 +10,7 @@ class ApiProvider{
   static final HttpClient _httpClient = HttpClient();
 
 
-  Future<List<Map<String,dynamic>>?> fetchNewVideos({required String page}) async{
+  Future<List<VideoModel>?> fetchNewVideos({required String page}) async{
     final uri = Uri.parse(BASE_URL+endpoint_trending_videos).replace(
       queryParameters: {
         'page': page,
@@ -26,7 +27,7 @@ class ApiProvider{
       return null;
     }
     TotalVideos.fromJson(jsonResponse);
-    return jsonResponse['results'].map<Map<String,dynamic>>((e) => e as Map<String,dynamic>).toList();
+    return jsonResponse['results'].map<VideoModel>((e) => VideoModel.fromJson(e)).toList();
 
   }
   static Future<Map<String, dynamic>?> _getJson(Uri uri,bool reThrow) async {

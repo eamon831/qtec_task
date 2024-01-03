@@ -5,23 +5,24 @@ import 'package:qtec_task/extensions/string_extensions.dart';
 import 'package:qtec_task/global_widget/cached_image_view.dart';
 import 'package:qtec_task/global_widget/channel_image_circle_view.dart';
 import 'package:qtec_task/global_widget/global_text_view.dart';
+import 'package:qtec_task/model/video_model.dart';
 import 'package:qtec_task/utils/constants.dart';
 import 'package:qtec_task/utils/utility_functions.dart';
 
 class VideoCardView extends StatelessWidget {
-  final Map<String, dynamic> video;
+  final VideoModel video;
   final VoidCallback onTap;
   const VideoCardView({super.key, required this.video, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    String formattedDate = formatDate(video['created_at']);
+    String formattedDate = formatDate(video.createdAt);
 
     return InkWell(
       onTap: onTap,
       child: Container(
         //padding: const EdgeInsets.all(10),
-        margin: const EdgeInsets.all(10),
+        margin: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
@@ -31,8 +32,8 @@ class VideoCardView extends StatelessWidget {
             Stack(
               children: [
                 CachedImageView(
-                  imageUrl: video['thumbnail'],
-                  height: 200,
+                  imageUrl: video.thumbnail!,
+                  height: 192,
                 ),
                 Positioned(
                   bottom: 10,
@@ -44,7 +45,7 @@ class VideoCardView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Text(
-                      video['duration'],
+                      video.duration!,
                       style: const TextStyle(
                         color: Colors.white,
                       ),
@@ -53,16 +54,14 @@ class VideoCardView extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            10.height,
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 children: [
                   Expanded(
                     child: ChannelImageCircleView(
-                      imageUrl: video['channel_image'],
+                      imageUrl: video.channelImage!,
                     ),
                   ),
                   5.width,
@@ -72,13 +71,13 @@ class VideoCardView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GlobalTextView(
-                          text: video['title'],
+                          text: video.title!,
                           fontFamily: FONT_FAMILY_HIND_SILIGURI,
                           fontSize: 15,
                           fontWeight: 600,
                         ),
                         GlobalTextView(
-                          text: "${video['viewers']} views . $formattedDate",
+                          text: "${video.viewers??''} views . $formattedDate",
                           fontFamily: FONT_FAMILY_INTER,
                           fontSize: 13,
                           fontWeight: 400,
