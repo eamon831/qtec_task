@@ -34,7 +34,7 @@ class ApiProvider{
     try {
       _httpClient.badCertificateCallback = ((X509Certificate cert, String host, int port) => true);
       final httpRequest = await _httpClient.getUrl(uri);
-      print(httpRequest.uri.toString());
+      //print(httpRequest.uri.toString());
       final httpResponse = await httpRequest.close();
       if (httpResponse.statusCode != HttpStatus.OK) {
         return null;
