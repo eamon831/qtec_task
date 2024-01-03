@@ -6,7 +6,7 @@ This Flutter project is part of the hiring process for Qtec Solution Limited. Th
 1. List of Trending Videos
 2. Video Player Page
 
-# how to run the project
+# How to run the project
 simply clone the project and run "flutter pub get" in the terminal on the root project directory
 then run the project by "flutter run" in the terminal
 
