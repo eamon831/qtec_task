@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 InputDecoration globalInputDecoration = InputDecoration(
   hintText: 'hint',
-  fillColor: Color(0xffffffff),
+  fillColor: const Color(0xffffffff),
   filled: true,
   hintStyle: GoogleFonts.poppins(
     fontSize: 12,
-    color: Color(0xff8e8e93),
+    color: const Color(0xff8e8e93),
     fontWeight: FontWeight.w500,
   ),
 

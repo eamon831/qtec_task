@@ -1,5 +1,7 @@
 import 'package:chewie/chewie.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:qtec_task/global_widget/cached_image_view.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerPageController extends GetxController {
@@ -17,9 +19,16 @@ class VideoPlayerPageController extends GetxController {
     controller = VideoPlayerController.networkUrl(Uri.parse(video.value!['manifest']));
     chewieController = ChewieController(
       videoPlayerController: controller,
-      autoPlay: true,
+      autoPlay: false,
       looping: false,
-      // Other customization options...
+      autoInitialize: false,
+      placeholder: Container(
+        color: Colors.black,
+        child: CachedImageView(
+          height: 200,
+          imageUrl: video.value!['thumbnail'],
+        )
+      ),
     );
     super.onInit();
   }
