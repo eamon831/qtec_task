@@ -45,12 +45,17 @@ This project uses **GetX** for state management. The relevant files are located 
 - **[video_player](https://pub.dev/packages/video_player)**: Flutter plugin for playing videos.
 - **[nb_utils](https://pub.dev/packages/nb_utils)**: A package for common utility methods and widgets.
 
-## Screenshots
+## Screenshots Android
 
 ![Trending Videos Screen](video_list_page.jpeg)
 
 ![Video Player Screen](video_player_page.jpeg)
 
+## Screenshots IOS
+
+![Trending Videos Screen](video_list_page.png)
+
+![Video Player Screen](video_player_page.png)
 
 
 
