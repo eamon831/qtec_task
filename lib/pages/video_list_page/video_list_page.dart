@@ -16,7 +16,7 @@ class VideoListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const GlobalTextView(
-          text: 'Trending Page',
+          text: 'Trending Videos',
           fontFamily: FONT_FAMILY_INTER,
           fontSize: 20,
           fontWeight:700,

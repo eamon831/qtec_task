@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:convert' show json, utf8;
 
+import 'package:flutter/foundation.dart';
 import 'package:qtec_task/model/total_videos.dart';
 import 'package:qtec_task/model/video_model.dart';
 import 'package:qtec_task/utils/constants.dart';
@@ -34,7 +35,9 @@ class ApiProvider{
     try {
       _httpClient.badCertificateCallback = ((X509Certificate cert, String host, int port) => true);
       final httpRequest = await _httpClient.getUrl(uri);
-      //print(httpRequest.uri.toString());
+      if (kDebugMode) {
+        print(httpRequest.uri.toString());
+      }
       final httpResponse = await httpRequest.close();
       if (httpResponse.statusCode != HttpStatus.OK) {
         return null;
