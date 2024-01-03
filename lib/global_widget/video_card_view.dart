@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:qtec_task/extensions/string_extensions.dart';
 import 'package:qtec_task/global_widget/cached_image_view.dart';
 import 'package:qtec_task/global_widget/channel_image_circle_view.dart';
 import 'package:qtec_task/global_widget/subtitle_text_view.dart';
 import 'package:qtec_task/global_widget/title_text_view.dart';
+import 'package:qtec_task/utils/utility_functions.dart';
 
 class VideoCardView extends StatelessWidget {
   final Map<String, dynamic> video;
@@ -76,13 +78,10 @@ class VideoCardView extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Expanded(
-                  child: SizedBox(
-                      height: 40,
-                      child: Icon(
-                        Icons.more_vert,
-                        color: Colors.black,
-                      )),
+                Expanded(
+                  child: SvgPicture.asset(
+                    'more_vert'.svgIcon(),
+                  ),
                 ),
               ],
             ),
@@ -92,9 +91,5 @@ class VideoCardView extends StatelessWidget {
     );
   }
 
-  String formatDate(String originalDate) {
-    DateTime dateTime = DateTime.parse(originalDate);
-    String formattedDate = DateFormat.yMMMd().format(dateTime);
-    return formattedDate;
-  }
+
 }

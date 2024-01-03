@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ColumnIconButton extends StatelessWidget {
   final String text;
-  final IconData icon;
   final VoidCallback? onTap;
-  const ColumnIconButton({super.key, required this.text, required this.icon, this.onTap});
+  final String iconPath;
+  const ColumnIconButton({super.key, required this.text,this.onTap, required this.iconPath});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +23,10 @@ class ColumnIconButton extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(
-              icon,
-              color: const Color(0xff718096),
-              size: 24,),
+
+
+          SvgPicture.asset(iconPath),
+          const SizedBox(height: 5,),
 
           Text(text,style: GoogleFonts.poppins(
             textStyle: const TextStyle(

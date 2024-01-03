@@ -11,6 +11,7 @@ import 'package:qtec_task/global_widget/subtitle_text_view.dart';
 import 'package:qtec_task/global_widget/title_text_view.dart';
 import 'package:qtec_task/pages/video_player_page/video_player_page_controller.dart';
 import 'package:chewie/chewie.dart';
+import 'package:qtec_task/utils/input_decorations.dart';
 import 'package:qtec_task/utils/utility_functions.dart';
 
 class VideoPlayerPage extends StatelessWidget {
@@ -65,15 +66,26 @@ class VideoPlayerPage extends StatelessWidget {
                           '${mvc.video.value!['viewers']} views  .  ${formatTimeDifference(DateTime.parse(mvc.video.value!['created_at']))}',
                           style: TextStyle(color: Colors.grey),
                         ),
-                        8.height,
-                        const Row(
+                        16.height,
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             ColumnIconButton(
-                                text: "Mash Allah (12k)", icon: Icons.ac_unit),
-                            ColumnIconButton(text: "Like (12k)", icon: Icons.thumb_up),
-                            ColumnIconButton(text: "Share (12k)", icon: Icons.share),
-                            ColumnIconButton(text: "Report", icon: Icons.flag),
+                              text: "Mash Allah (12k)",
+                              iconPath: "heart".svgIcon(),
+                            ),
+                            ColumnIconButton(
+                              text: "Like (12k)",
+                              iconPath: "like".svgIcon(),
+                            ),
+                            ColumnIconButton(
+                              text: "Share (12k)",
+                              iconPath: "share".svgIcon(),
+                            ),
+                            ColumnIconButton(
+                              text: "Report",
+                              iconPath: "flag".svgIcon(),
+                            ),
                           ],
                         ),
                         8.height,
@@ -96,10 +108,12 @@ class VideoPlayerPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     TitleTextView(
-                                      text: mvc.video.value?['channel_name'] ?? '',
+                                      text: mvc.video.value?['channel_name'] ??
+                                          '',
                                     ),
                                     SubtitleTextView(
-                                      text: '${mvc.video.value?['channel_subscriber'] ?? ''} subscribers',
+                                      text:
+                                          '${mvc.video.value?['channel_subscriber'] ?? ''} subscribers',
                                     ),
                                   ],
                                 ),
@@ -111,7 +125,7 @@ class VideoPlayerPage extends StatelessWidget {
                                 color: Color(0xff3898fc),
                                 borderRadius: BorderRadius.circular(5),
                               ),
-                              child: const Row(
+                              child: Row(
                                 children: [
                                   Icon(
                                     Icons.add,
@@ -119,8 +133,12 @@ class VideoPlayerPage extends StatelessWidget {
                                   ),
                                   Text(
                                     'SUBSCRIBE',
-                                    style: TextStyle(
-                                      color: Colors.white,
+                                    style: GoogleFonts.poppins(
+                                      textStyle: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -138,60 +156,31 @@ class VideoPlayerPage extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        const Row(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                           SubtitleTextView(text: 'Comments   7.5K'),
-                            Icon(
-                              Icons.arrow_drop_down,
-                              color: Colors.grey,
+                            const SubtitleTextView(text: 'Comments   7.5K'),
+                            SvgPicture.asset(
+                              'up_down'.svgIcon(),
+                              height: 20,
+                              width: 20,
                             ),
                           ],
                         ),
-                        8.height,
+                        16.height,
                         SizedBox(
                           height: 47,
                           child: TextFormField(
-                            decoration: InputDecoration(
-                              hintText: 'Add Comment',
-                              fillColor: Color(0xffffffff),
-                              filled: true,
-                              hintStyle: GoogleFonts.poppins(
-                                fontSize: 12,
-                                color: Color(0xff8e8e93),
-                                fontWeight: FontWeight.w500,
+                              decoration: globalInputDecoration.copyWith(
+                            suffixIcon: InkWell(
+                              onTap: () {},
+                              child: SvgPicture.asset(
+                                'input_submit_icon'.svgIcon(),
+                                height: 5,
+                                width: 5,
                               ),
-                              suffixIcon: SizedBox(
-                                height: 10,
-                                width: 10,
-                                child: SvgPicture.asset(
-                                  'comment_submit'.svgIcon(),
-                                  height: 10,
-                                  width: 10,
-                                ),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(6),
-                                borderSide: const BorderSide(
-                                  color: Color(0xffe3e8f0),
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(6),
-                                borderSide: const BorderSide(
-                                  color: Color(0xffe3e8f0),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(6),
-                                borderSide: const BorderSide(
-                                  color: Color(0xffe3e8f0),
-                                ),
-                              ),
-
-
                             ),
-                          ),
+                          )),
                         ),
                         8.height,
                         ListView.builder(
@@ -200,13 +189,15 @@ class VideoPlayerPage extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) {
                             var comment = {
-                              'profile_image_url':mvc.video.value!['channel_image'],
-                              'commenter_name':"Fahmida khanom",
-                              'created_at':"2 days",
-                              'comment':"হুজুরের বক্তব্য গুলো ইংরেজি তে অনুবাদ করে সারা পৃথিবীর মানুষদের কে শুনিয়ে দিতে হবে। কথা গুলো খুব দামি",
+                              'profile_image_url':
+                                  mvc.video.value!['channel_image'],
+                              'commenter_name': "Fahmida khanom",
+                              'created_at': "2 days",
+                              'comment':
+                                  "হুজুরের বক্তব্য গুলো ইংরেজি তে অনুবাদ করে সারা পৃথিবীর মানুষদের কে শুনিয়ে দিতে হবে। কথা গুলো খুব দামি",
                             };
                             return CommentCardView(comment: comment);
-                            },
+                          },
                         ),
                       ],
                     ),

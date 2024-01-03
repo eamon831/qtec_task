@@ -2,6 +2,8 @@
 
 
 
+import 'package:intl/intl.dart';
+
 String formatTimeDifference(DateTime dateTime) {
   DateTime now = DateTime.now();
   Duration difference = now.difference(dateTime);
@@ -21,4 +23,10 @@ String formatTimeDifference(DateTime dateTime) {
   } else {
     return 'Just now';
   }
+}
+
+String formatDate(String originalDate) {
+  DateTime dateTime = DateTime.parse(originalDate);
+  String formattedDate = DateFormat.yMMMd().format(dateTime);
+  return formattedDate;
 }
