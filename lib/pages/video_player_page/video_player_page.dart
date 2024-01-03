@@ -171,16 +171,29 @@ class VideoPlayerPage extends StatelessWidget {
                         SizedBox(
                           height: 47,
                           child: TextFormField(
-                              decoration: globalInputDecoration.copyWith(
-                            suffixIcon: InkWell(
-                              onTap: () {},
-                              child: SvgPicture.asset(
-                                'input_submit_icon'.svgIcon(),
-                                height: 5,
-                                width: 5,
+                            decoration: globalInputDecoration.copyWith(
+                              suffixIcon: InkWell(
+                                onTap: () {},
+                                child: SizedBox(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SvgPicture.asset(
+                                      'input_submit_icon'.svgIcon(),
+                                      height: 20,
+                                      width: 20,
+
+                                    ),
+                                  ),
+                                ),
                               ),
+                              hintText: 'Add Comment',
+                              suffixIconConstraints: const BoxConstraints(
+                                maxHeight: 40,
+                                maxWidth: 40,
+                              ),
+
                             ),
-                          )),
+                          ),
                         ),
                         8.height,
                         ListView.builder(

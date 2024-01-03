@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 InputDecoration globalInputDecoration = InputDecoration(
-  hintText: 'Add Comment',
+  hintText: 'hint',
   fillColor: Color(0xffffffff),
   filled: true,
   hintStyle: GoogleFonts.poppins(
