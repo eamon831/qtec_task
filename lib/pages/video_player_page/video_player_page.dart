@@ -8,10 +8,10 @@ import 'package:qtec_task/global_widget/cached_image_view.dart';
 import 'package:qtec_task/global_widget/channel_image_circle_view.dart';
 import 'package:qtec_task/global_widget/column_icon_button.dart';
 import 'package:qtec_task/global_widget/comment_card_view.dart';
-import 'package:qtec_task/global_widget/subtitle_text_view.dart';
-import 'package:qtec_task/global_widget/title_text_view.dart';
+import 'package:qtec_task/global_widget/global_text_view.dart';
 import 'package:qtec_task/pages/video_player_page/video_player_page_controller.dart';
 import 'package:chewie/chewie.dart';
+import 'package:qtec_task/utils/constants.dart';
 import 'package:qtec_task/utils/input_decorations.dart';
 import 'package:qtec_task/utils/utility_functions.dart';
 
@@ -26,7 +26,6 @@ class VideoPlayerPage extends StatelessWidget {
         toolbarHeight: 1,
       ),
       body: WillPopScope(
-
         onWillPop: () async {
           mvc.controller.dispose();
           Get.back();
@@ -37,36 +36,38 @@ class VideoPlayerPage extends StatelessWidget {
             // Video Player
             Stack(
               children: [
-                Obx(()=>mvc.chewieController.value.isPlaying?Container(
-                  height: Get.height * 0.3,
-                  color: Colors.black,
-                  child: Chewie(
-                    controller: mvc.chewieController.value,
-                  ),
-                ):Stack(
-                  children: [
-                    CachedImageView(
-                      imageUrl: mvc.video.value!['thumbnail'],
-                      height: Get.height * 0.3,
-                    ),
-                    Positioned(
-                      top: Get.height * 0.15,
-                      left: Get.width * 0.4,
-                      child: InkWell(
-                        onTap: () {
-                          mvc.chewieController.value.play();
-                          mvc.chewieController.refresh();
-                        },
-                        child: const Icon(
-                          Icons.play_arrow,
-                          color: Colors.white,
-                          size: 30,
-
+                Obx(
+                  () => mvc.chewieController.value.isPlaying
+                      ? Container(
+                          height: Get.height * 0.3,
+                          color: Colors.black,
+                          child: Chewie(
+                            controller: mvc.chewieController.value,
+                          ),
+                        )
+                      : Stack(
+                          children: [
+                            CachedImageView(
+                              imageUrl: mvc.video.value!['thumbnail'],
+                              height: Get.height * 0.3,
+                            ),
+                            Positioned(
+                              top: Get.height * 0.15,
+                              left: Get.width * 0.4,
+                              child: InkWell(
+                                onTap: () {
+                                  mvc.chewieController.value.play();
+                                  mvc.chewieController.refresh();
+                                },
+                                child: const Icon(
+                                  Icons.play_arrow,
+                                  color: Colors.white,
+                                  size: 30,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ),
-                  ],
-                ),
                 ),
                 Positioned(
                   child: InkWell(
@@ -88,16 +89,23 @@ class VideoPlayerPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          TitleTextView(text: mvc.video.value?['title'] ?? ''),
-                          8.height,
-                          Text(
-                            '${mvc.video.value!['viewers']} views  .  ${formatTimeDifference(DateTime.parse(mvc.video.value!['created_at']))}',
-                            style: const TextStyle(color: Colors.grey),
+                          GlobalTextView(
+                            text: mvc.video.value?['title'] ?? '',
+                            fontFamily: FONT_FAMILY_HIND_SILIGURI,
+                            fontSize: 15,
+                            fontWeight: 600,
                           ),
+                          8.height,
+                          GlobalTextView(
+                            text: '${mvc.video.value!['viewers']} views  .  ${formatTimeDifference(DateTime.parse(mvc.video.value!['created_at']))}',
+                            fontSize: 12,
+                            fontWeight: 400,
+                          ),
+
                           16.height,
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,19 +141,23 @@ class VideoPlayerPage extends StatelessWidget {
                                       right: 5,
                                     ),
                                     child: ChannelImageCircleView(
-                                      imageUrl: mvc.video.value!['channel_image'],
+                                      imageUrl:
+                                          mvc.video.value!['channel_image'],
                                     ),
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      TitleTextView(
-                                        text: mvc.video.value?['channel_name'] ??
-                                            '',
+                                      GlobalTextView(
+                                        text: mvc.video.value?['channel_name'] ?? '',
+                                        fontSize: 14,
+                                        fontWeight: 500,
                                       ),
-                                      SubtitleTextView(
-                                        text:
-                                            '${mvc.video.value?['channel_subscriber'] ?? ''} subscribers',
+                                      GlobalTextView(
+                                        text: '${mvc.video.value?['channel_subscriber'] ?? ''} subscribers',
+                                        fontSize: 11,
+                                        fontWeight: 400,
                                       ),
                                     ],
                                   ),
@@ -191,7 +203,10 @@ class VideoPlayerPage extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const SubtitleTextView(text: 'Comments   7.5K'),
+                              const GlobalTextView(text: 'Comments   7.5K',
+                              fontSize: 12,
+                              fontWeight: 400,
+                              ),
                               SvgPicture.asset(
                                 'up_down'.svgIcon(),
                                 height: 20,
@@ -213,7 +228,6 @@ class VideoPlayerPage extends StatelessWidget {
                                         'input_submit_icon'.svgIcon(),
                                         height: 20,
                                         width: 20,
-
                                       ),
                                     ),
                                   ),
@@ -223,7 +237,6 @@ class VideoPlayerPage extends StatelessWidget {
                                   maxHeight: 40,
                                   maxWidth: 40,
                                 ),
-
                               ),
                             ),
                           ),

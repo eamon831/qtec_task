@@ -4,8 +4,8 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:qtec_task/extensions/string_extensions.dart';
 import 'package:qtec_task/global_widget/cached_image_view.dart';
 import 'package:qtec_task/global_widget/channel_image_circle_view.dart';
-import 'package:qtec_task/global_widget/subtitle_text_view.dart';
-import 'package:qtec_task/global_widget/title_text_view.dart';
+import 'package:qtec_task/global_widget/global_text_view.dart';
+import 'package:qtec_task/utils/constants.dart';
 import 'package:qtec_task/utils/utility_functions.dart';
 
 class VideoCardView extends StatelessWidget {
@@ -56,40 +56,48 @@ class VideoCardView extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Row(
-              children: [
-                Expanded(
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  Expanded(
                     child: ChannelImageCircleView(
-                  imageUrl: video['channel_image'],
-                ),
-                ),
-                5.width,
-                Expanded(
-                  flex: 8,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TitleTextView(text: video['title']),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      SubtitleTextView(
-                          text: "${video['viewers']} views . $formattedDate"),
-                    ],
+                      imageUrl: video['channel_image'],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: SvgPicture.asset(
-                    'more_vert'.svgIcon(),
+                  5.width,
+                  Expanded(
+                    flex: 8,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GlobalTextView(
+                          text: video['title'],
+                          fontFamily: FONT_FAMILY_HIND_SILIGURI,
+                          fontSize: 15,
+                          fontWeight: 600,
+                        ),
+                        GlobalTextView(
+                          text: "${video['viewers']} views . $formattedDate",
+                          fontFamily: FONT_FAMILY_INTER,
+                          fontSize: 13,
+                          fontWeight: 400,
+
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: SvgPicture.asset(
+                      'more_vert'.svgIcon(),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
     );
   }
-
-
 }

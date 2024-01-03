@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:qtec_task/global_widget/global_text_view.dart';
 import 'package:qtec_task/global_widget/video_card_view.dart';
 import 'package:qtec_task/pages/video_list_page/video_list_page_controller.dart';
 import 'package:qtec_task/pages/video_player_page/video_player_page.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:qtec_task/utils/constants.dart';
 
 class VideoListPage extends StatelessWidget {
   const VideoListPage({super.key});
@@ -14,12 +15,12 @@ class VideoListPage extends StatelessWidget {
     VideoListPageController mvc = Get.put(VideoListPageController());
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Trending Page',
-          style: GoogleFonts.inter(
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-          ),
+        title: const GlobalTextView(
+          text: 'Trending Page',
+          fontFamily: FONT_FAMILY_INTER,
+          fontSize: 20,
+          fontWeight:700,
+
         ),
       ),
       body: Obx(
