@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:qtec_task/extensions/string_extensions.dart';
+import 'package:qtec_task/global_widget/cached_image_view.dart';
 import 'package:qtec_task/global_widget/channel_image_circle_view.dart';
 import 'package:qtec_task/global_widget/column_icon_button.dart';
 import 'package:qtec_task/global_widget/comment_card_view.dart';
@@ -36,12 +37,36 @@ class VideoPlayerPage extends StatelessWidget {
             // Video Player
             Stack(
               children: [
-                Container(
-                  height: 200,
+                Obx(()=>mvc.chewieController.value.isPlaying?Container(
+                  height: Get.height * 0.3,
                   color: Colors.black,
                   child: Chewie(
-                    controller: mvc.chewieController,
+                    controller: mvc.chewieController.value,
                   ),
+                ):Stack(
+                  children: [
+                    CachedImageView(
+                      imageUrl: mvc.video.value!['thumbnail'],
+                      height: Get.height * 0.3,
+                    ),
+                    Positioned(
+                      top: Get.height * 0.15,
+                      left: Get.width * 0.4,
+                      child: InkWell(
+                        onTap: () {
+                          mvc.chewieController.value.play();
+                          mvc.chewieController.refresh();
+                        },
+                        child: const Icon(
+                          Icons.play_arrow,
+                          color: Colors.white,
+                          size: 30,
+
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 ),
                 Positioned(
                   child: InkWell(

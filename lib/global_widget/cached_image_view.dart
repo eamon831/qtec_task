@@ -18,7 +18,7 @@ class CachedImageView extends StatelessWidget {
         baseColor: Colors.grey[300]!,
         highlightColor: Colors.grey[100]!,
         child: Container(
-          height: 200,
+          height: height??200,
           width: double.infinity,
           color: Colors.white,
         ),

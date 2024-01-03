@@ -11,6 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f8df2050-e1ea-44cc-83c8-628a65e74981" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/global_widget/cached_image_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/global_widget/cached_image_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/video_player_page/video_player_page_controller.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,5 +98,16 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/global_widget/cached_image_view.dart</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
