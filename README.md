@@ -43,7 +43,7 @@ This project uses **GetX** for state management. The relevant files are located 
 
 - **[get](https://pub.dev/packages/get)**: State management library for Flutter with a focus on simplicity and performance.
 - **[video_player](https://pub.dev/packages/video_player)**: Flutter plugin for playing videos.
-- **[http](https://pub.dev/packages/http)**: A package for making HTTP requests.
+- **[nb_utils](https://pub.dev/packages/nb_utils)**: A package for common utility methods and widgets.
 
 ## Screenshots
 
